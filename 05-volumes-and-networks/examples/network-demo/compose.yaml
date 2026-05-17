@@ -1,0 +1,17 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: network-demo-web
+    networks:
+      - appnet
+
+  toolbox:
+    image: alpine:3.20
+    container_name: network-demo-toolbox
+    command: ["sh", "-c", "sleep 3600"]
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge

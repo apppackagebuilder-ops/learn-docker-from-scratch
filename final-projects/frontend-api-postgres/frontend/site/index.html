@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docker Storefront</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Segoe UI, sans-serif;
+      background: linear-gradient(135deg, #f6f1e8, #d6e8f0);
+      color: #203040;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+    }
+    h1 {
+      margin-top: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      border: 1px solid #d7e0e7;
+      border-radius: 14px;
+      padding: 16px;
+      background: #fffdf9;
+    }
+    .price {
+      font-weight: 700;
+      color: #0d5c63;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Docker Storefront Demo</h1>
+    <p>This page is served by Nginx. Product data comes from the Flask API, which reads from PostgreSQL.</p>
+    <div id="status">Loading products...</div>
+    <div id="products" class="grid"></div>
+  </main>
+  <script>
+    async function loadProducts() {
+      const status = document.getElementById('status');
+      const products = document.getElementById('products');
+      try {
+        const response = await fetch('/api/products');
+        const data = await response.json();
+        status.textContent = 'Products loaded successfully.';
+        products.innerHTML = data.products.map(product => `
+          <section class="card">
+            <h2>${product.name}</h2>
+            <p>${product.description}</p>
+            <p class="price">$${product.price}</p>
+          </section>
+        `).join('');
+      } catch (error) {
+        status.textContent = 'Could not load products. Check the API and database containers.';
+      }
+    }
+
+    loadProducts();
+  </script>
+</body>
+</html>

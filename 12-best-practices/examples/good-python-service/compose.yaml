@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8010:8000"
+    environment:
+      APP_NAME: best-practice-demo
+      APP_ENV: local
+    restart: unless-stopped

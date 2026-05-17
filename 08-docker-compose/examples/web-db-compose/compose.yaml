@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    container_name: compose-web
+    ports:
+      - "5001:5000"
+    environment:
+      DB_HOST: db
+      DB_NAME: course_db
+      DB_USER: course_user
+      DB_PASSWORD: course_pass
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    container_name: compose-db
+    environment:
+      POSTGRES_DB: course_db
+      POSTGRES_USER: course_user
+      POSTGRES_PASSWORD: course_pass
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

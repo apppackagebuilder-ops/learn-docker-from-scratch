@@ -1,0 +1,14 @@
+services:
+  product-service:
+    build: ./product-service
+    ports:
+      - "8091:5000"
+
+  gateway-service:
+    build: ./gateway-service
+    environment:
+      PRODUCT_SERVICE_URL: http://product-service:5000
+    ports:
+      - "8090:5000"
+    depends_on:
+      - product-service
