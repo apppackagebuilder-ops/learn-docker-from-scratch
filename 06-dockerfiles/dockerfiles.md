@@ -1,6 +1,6 @@
 # Dockerfiles, Build Context, and .dockerignore
 
-## Goal of This Lesson
+## Goal
 
 This lesson teaches you one of the most important Docker skills:
 
@@ -11,6 +11,14 @@ To do that, you need to understand three things clearly:
 - What a Dockerfile is
 - What Docker can see during a build
 - Why `.dockerignore` keeps builds clean and efficient
+
+## Pre-requisites
+
+Before starting this lesson:
+
+- Docker is installed and running
+- You understand the difference between an image and a container
+- You know how to run `docker build` and `docker run` at a basic level
 
 ## What Is a Dockerfile?
 
@@ -150,6 +158,23 @@ Let us translate it.
 - `-t flask-demo`: give the image a tag named `flask-demo`
 - `.`: use the current folder as the build context
 
+## Sample Output
+
+When the example builds correctly, the terminal usually ends with lines similar to these:
+
+```text
+Successfully built abcdef123456
+Successfully tagged flask-demo:latest
+```
+
+After you run the container, opening the browser should show JSON similar to this:
+
+```json
+{
+    "message": "Hello from Flask in Docker"
+}
+```
+
 ## What Is Build Context?
 
 Build context is the set of files Docker can access during the build.
@@ -238,7 +263,66 @@ This lesson includes a small Flask web app in `examples/python-flask-app/`.
 
 The example is intentionally simple so you can focus on the Docker concepts.
 
-## Step-by-Step: Build and Run the Example
+## Flow-2: Build a New Docker Image and Run It Locally
+
+### Step-1: Review the Dockerfile
+
+Read the Dockerfile before building.
+
+Look for:
+
+- The base image
+- The working directory
+- The dependency installation step
+- The startup command
+
+### Step-2: Build the image
+
+```powershell
+docker build -t flask-demo .
+```
+
+### Step-3: Verify the image was created
+
+```powershell
+docker images
+```
+
+Expected result:
+
+- You should see `flask-demo` in the image list
+
+### Step-4: Run the image as a container
+
+```powershell
+docker run -d -p 5000:5000 --name flask-demo-app flask-demo
+```
+
+### Step-5: Access the application
+
+Open:
+
+`http://localhost:5000`
+
+Expected result:
+
+- You should see a JSON response from the Flask app
+
+### Step-6: Review logs and running containers
+
+```powershell
+docker ps
+docker logs flask-demo-app
+```
+
+### Step-7: Stop and remove the container
+
+```powershell
+docker stop flask-demo-app
+docker rm flask-demo-app
+```
+
+## What the Build and Run Commands Mean
 
 Open a terminal in the example folder and run:
 

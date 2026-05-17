@@ -1,5 +1,40 @@
 # Worksheet: Best Practices
 
+## Goal
+
+Use this worksheet to confirm that you can recognize practical Docker habits that make projects easier to run, share, and maintain.
+
+## Before You Start
+
+- Review the best-practices lesson.
+- Open the `good-python-service` example while answering.
+
+## Flow-1: Core Habits
+
+1. Why is `.dockerignore` useful?
+2. Why are health checks helpful?
+3. Why are volumes important for data?
+4. Why should apps log to standard output?
+
+## Flow-2: Review an Example
+
+Open the `good-python-service` example and identify:
+
+1. One best practice in the Dockerfile.
+2. One best practice in the Compose file.
+3. One best practice in the application setup.
+
+## Flow-3: Improvement Thinking
+
+1. What is one reason to run as a non-root user?
+2. Why are clear image tags helpful?
+3. Why is documentation part of best practices?
+
+## Flow-4: Reflection
+
+Why are best practices about more than just making a container run once?
+# Worksheet: Best Practices
+
 ## Part 1: Good Habits
 
 1. Why is `.dockerignore` important?

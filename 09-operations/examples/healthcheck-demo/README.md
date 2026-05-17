@@ -1,37 +1,48 @@
 # Health Check Demo
 
-## Purpose
+## Goal
 
-This example shows the difference between a container that is merely running and a container that is healthy.
+This example shows the difference between a container that is running and a container that is healthy.
 
-## Build
+## Pre-requisites
+
+- Docker Desktop running
+- Port `5002` available on your machine
+
+## Flow
+
+### Step-1: Build the image
 
 ```powershell
 docker build -t healthcheck-demo .
 ```
 
-## Run
+### Step-2: Run the container
 
 ```powershell
 docker run -d -p 5002:5000 --name healthcheck-demo healthcheck-demo
 ```
 
-## Expected Output
+### Step-3: Open the health endpoint
 
 Open:
 
 `http://localhost:5002/health`
 
-You should see a healthy JSON response.
-
-You can also inspect the container health status with:
+### Step-4: Inspect the container
 
 ```powershell
 docker inspect healthcheck-demo
 ```
 
+## Expected Output
+
+You should see a healthy JSON response from `/health`.
+
+The container inspection should show health information once checks begin running.
+
 ## What You Are Learning
 
 - How `HEALTHCHECK` works
-- How to inspect health status
-- Why logs and health are both useful
+- How to inspect container health status
+- Why logs and health are both useful for operations

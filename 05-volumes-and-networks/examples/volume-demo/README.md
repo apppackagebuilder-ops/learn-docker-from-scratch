@@ -1,31 +1,41 @@
 # Volume Demo
 
-## Purpose
+## Goal
 
-This example shows how data can survive across container runs when you use a volume.
+This example shows how container data can survive when you use a named volume.
 
-## Build
+## Pre-requisites
+
+- Docker Desktop running
+
+## Flow
+
+### Step-1: Build the example image
 
 ```powershell
 docker build -t volume-demo .
 ```
 
-## Run
+### Step-2: Run the container with a named volume
 
 ```powershell
 docker run --rm -v practice-data:/data volume-demo
 ```
 
-Run it more than once.
+### Step-3: Run it again
+
+```powershell
+docker run --rm -v practice-data:/data volume-demo
+```
 
 ## Expected Output
 
 Each run appends another line to the same file and prints the file contents.
 
-That means:
+That proves:
 
 - The container can disappear
-- The data still remains in the volume
+- The data can remain in the volume
 
 ## What You Are Learning
 

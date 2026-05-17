@@ -1,6 +1,6 @@
 # Security, Multi-Stage Builds, and Image Optimization
 
-## Goal of This Lesson
+## Goal
 
 This lesson teaches a very important production mindset:
 
@@ -13,6 +13,58 @@ An image can work and still be:
 - Harder to maintain
 
 So this lesson focuses on building images that are safer, smaller, and cleaner.
+
+## Pre-requisites
+
+- Docker Desktop running
+- Basic knowledge of Dockerfiles and image builds
+
+## Flow-1: Build and Run a Multi-Stage Image
+
+### Step-1: Review the Dockerfile stages
+
+Identify:
+
+- The dependency or build stage
+- The final runtime stage
+
+### Step-2: Build the example image
+
+```powershell
+docker build -t multi-stage-node-demo .
+```
+
+### Step-3: Run the container
+
+```powershell
+docker run -d -p 3000:3000 --name multi-stage-node-demo multi-stage-node-demo
+```
+
+### Step-4: Access the application
+
+Open `http://localhost:3000`
+
+## Sample Output
+
+You should see a JSON response from the Node.js app, proving the smaller runtime image still runs correctly.
+
+Example browser response:
+
+```json
+{
+	"message": "Multi-stage Node app is running"
+}
+```
+
+## Visual Map
+
+```mermaid
+flowchart LR
+		A[Build Stage] --> B[Install dependencies and prepare app]
+		B --> C[Copy only runtime files]
+		C --> D[Runtime Stage]
+		D --> E[Smaller production image]
+```
 
 ## Security Best Practices
 

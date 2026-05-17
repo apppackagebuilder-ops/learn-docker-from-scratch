@@ -1,22 +1,28 @@
 # Environment and Startup Demo
 
-## Purpose
+## Goal
 
-This example shows how environment variables, `CMD`, and `ENTRYPOINT` affect container behavior.
+This example shows how environment variables, `CMD`, and `ENTRYPOINT` change container behavior.
 
-## Build
+## Pre-requisites
+
+- Docker Desktop running
+
+## Flow
+
+### Step-1: Build the image
 
 ```powershell
 docker build -t env-demo .
 ```
 
-## Run with Defaults
+### Step-2: Run with defaults
 
 ```powershell
 docker run --rm env-demo
 ```
 
-## Run with Custom Values
+### Step-3: Run with custom values
 
 ```powershell
 docker run --rm -e APP_NAME=CourseApp env-demo --mode production
@@ -30,4 +36,10 @@ You should see lines that print:
 - The application environment
 - The selected mode
 
-Those values change based on the environment variables and startup arguments you pass.
+Those values change depending on the environment variables and startup arguments you pass.
+
+## What You Are Learning
+
+- How runtime configuration changes behavior
+- How `CMD` supplies defaults
+- How `ENTRYPOINT` fixes the main executable

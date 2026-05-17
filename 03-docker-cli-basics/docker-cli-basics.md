@@ -1,6 +1,6 @@
 # Docker CLI Basics
 
-## Goal of This Lesson
+## Goal
 
 This lesson teaches you how to talk to Docker from the terminal.
 
@@ -16,6 +16,17 @@ Why?
 Because most tutorials, teams, and production workflows use Docker commands directly.
 
 If you understand the CLI, you understand Docker more deeply.
+
+## Pre-requisites
+
+Before starting this lesson, make sure:
+
+- Docker Desktop is installed
+- Docker Desktop is running
+- `docker version` works
+- `docker run hello-world` works
+
+If any of those fail, go back to the installation lesson first.
 
 ## The General Command Pattern
 
@@ -115,6 +126,100 @@ docker rmi <image-id-or-name>
 ```
 
 Use this to remove an image.
+
+## Essential Docker Commands Reference
+
+| Command | Meaning |
+|---|---|
+| `docker ps` | List running containers |
+| `docker ps -a` | List all containers, including stopped ones |
+| `docker images` | List images on the machine |
+| `docker stop <name>` | Stop a running container |
+| `docker start <name>` | Start a stopped container |
+| `docker restart <name>` | Restart a container |
+| `docker logs <name>` | Show container logs |
+| `docker exec -it <name> sh` | Open a shell in a running container |
+| `docker rm <name>` | Remove a stopped container |
+| `docker rmi <image>` | Remove an image |
+| `docker inspect <name>` | Show detailed configuration and runtime info |
+
+## Flow-1: Run an Nginx Container and Practice Core Commands
+
+### Step-1: Start the container
+
+```powershell
+docker run -d -p 8080:80 --name my-nginx nginx
+```
+
+### Step-2: Verify the container is running
+
+```powershell
+docker ps
+docker ps -a
+```
+
+### Step-3: Access the application
+
+Open:
+
+`http://localhost:8080`
+
+Expected result:
+
+- The Nginx welcome page appears
+
+### Step-4: View logs
+
+```powershell
+docker logs my-nginx
+docker logs -f my-nginx
+```
+
+### Step-5: Connect to the container terminal
+
+```powershell
+docker exec -it my-nginx sh
+```
+
+### Step-6: Stop and start the container
+
+```powershell
+docker stop my-nginx
+docker start my-nginx
+```
+
+### Step-7: Remove the container
+
+```powershell
+docker stop my-nginx
+docker rm my-nginx
+```
+
+## Sample Output
+
+After `docker ps`, you should see a running container row that includes:
+
+- The image name `nginx`
+- The container name `my-nginx`
+- A port mapping that includes `8080->80`
+
+Example output:
+
+```text
+CONTAINER ID   IMAGE   COMMAND                  STATUS          PORTS                  NAMES
+123abc456def   nginx   "/docker-entrypoint.…"  Up 15 seconds   0.0.0.0:8080->80/tcp   my-nginx
+```
+
+## Visual Map
+
+```mermaid
+flowchart LR
+	A[docker run] --> B[Container starts]
+	B --> C[docker ps shows it]
+	C --> D[docker logs explains behavior]
+	D --> E[docker exec lets you inspect inside]
+	E --> F[docker stop and docker rm clean up]
+```
 
 ## Understanding `docker run`
 

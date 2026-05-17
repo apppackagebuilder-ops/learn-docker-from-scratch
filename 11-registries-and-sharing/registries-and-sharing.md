@@ -1,6 +1,6 @@
 # Docker Hub and Private Registries
 
-## Goal of This Lesson
+## Goal
 
 This lesson explains how images move from one place to another.
 
@@ -8,6 +8,61 @@ You already know how to build and run images locally.
 Now you need to know how teams share them.
 
 That is the job of a registry.
+
+## Pre-requisites
+
+- Docker Desktop running
+- A Docker Hub account if you want to push images
+- Basic comfort with image build and tag commands
+
+## Flow-1: Build, Tag, and Push an Image
+
+### Step-1: Build a local image
+
+```powershell
+docker build -t registry-demo ./examples/tagging-demo
+```
+
+### Step-2: Tag the image for a registry
+
+```powershell
+docker tag registry-demo your-dockerhub-name/registry-demo:1.0.0
+```
+
+### Step-3: Log in to Docker Hub
+
+```powershell
+docker login
+```
+
+### Step-4: Push the image
+
+```powershell
+docker push your-dockerhub-name/registry-demo:1.0.0
+```
+
+## Sample Output
+
+- `docker images` should show both the local image name and the fully tagged image name
+- After a successful push, the image should appear in your registry account
+
+Example local image listing after tagging:
+
+```text
+REPOSITORY                        TAG      IMAGE ID       CREATED          SIZE
+registry-demo                     latest   abcdef123456   10 seconds ago   15MB
+your-dockerhub-name/registry-demo 1.0.0    abcdef123456   10 seconds ago   15MB
+```
+
+## Visual Map
+
+```mermaid
+flowchart LR
+	A[Build local image] --> B[Tag image with registry name]
+	B --> C[Log in to registry]
+	C --> D[Push image]
+	D --> E[Pull same image on another machine]
+```
 
 ## What Is a Registry?
 

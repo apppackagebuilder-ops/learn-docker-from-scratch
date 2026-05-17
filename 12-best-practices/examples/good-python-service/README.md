@@ -1,6 +1,8 @@
 # Good Python Service Example
 
-This example bundles several best practices into one small project.
+## Goal
+
+This example bundles several Docker best practices into one small service.
 
 ## What It Demonstrates
 
@@ -13,32 +15,38 @@ This example bundles several best practices into one small project.
 - Running as a non-root user
 - A Compose file for easy local startup
 
-## Run It
+## Pre-requisites
+
+- Docker Desktop running
+- Port `8010` available on your machine
+
+## Flow
+
+### Step-1: Start the example
 
 ```powershell
 docker compose up --build -d
 ```
 
-Open `http://localhost:8010`
+### Step-2: Open the application
 
-## Expected Output
+Open:
 
-You should see a JSON response that includes the service name, environment, and a short message.
+`http://localhost:8010`
 
-If you open:
+### Step-3: Open the health endpoint
 
-`http://localhost:8010/health`
-
-you should see a simple healthy response.
-
-## Health Check
-
-The service also exposes:
+Open:
 
 `http://localhost:8010/health`
 
-## Stop It
+### Step-4: Stop the example when finished
 
 ```powershell
 docker compose down
 ```
+
+## Expected Output
+
+- The main endpoint should return JSON with the service name, environment, and message
+- The health endpoint should return a healthy response

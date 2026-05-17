@@ -2,16 +2,14 @@
 
 ## Goal
 
-This project teaches you how a real multi-container setup starts to feel.
+This project helps you practice a real multi-container setup.
 
 You will run:
 
 - PostgreSQL as the database
-- pgAdmin as a browser-based database tool
+- pgAdmin as the browser-based admin tool
 
 ## What You Learn
-
-This project helps you practice:
 
 - Running more than one container together
 - Using Docker Compose
@@ -19,51 +17,38 @@ This project helps you practice:
 - Keeping database data in a volume
 - Connecting one service to another
 
-## Read the Compose File First
+## Pre-requisites
 
-Before you run anything, open `compose.yaml` and notice:
+- Docker Desktop running
+- Port `8089` available on your machine
 
-- There is a `db` service
-- There is a `pgadmin` service
-- The database has a named volume
-- Both services get configuration values from environment variables
+## Project Files
 
-## Step-by-Step: Start the Project
+- `compose.yaml`: starts PostgreSQL and pgAdmin
+- `.env.example`: sample environment values
 
-Open a terminal in this folder and run:
+## Flow
+
+### Step-1: Start the project
 
 ```powershell
 docker compose up -d
 ```
 
-What this does:
-
-1. Pulls the PostgreSQL image if needed
-2. Pulls the pgAdmin image if needed
-3. Creates the project containers
-4. Creates the project network
-5. Starts both services
-
-## Open the Tools
-
-### PostgreSQL
-
-The database listens on port `5432`.
-
-### pgAdmin
+### Step-2: Open pgAdmin
 
 Open:
 
 `http://localhost:8089`
 
-## Login Details
-
-### pgAdmin login
+### Step-3: Log in to pgAdmin
 
 - Email: `admin@example.com`
 - Password: `admin123`
 
-### PostgreSQL connection values inside the Compose project
+### Step-4: Register the PostgreSQL server
+
+Use:
 
 - Host: `db`
 - Port: `5432`
@@ -71,38 +56,14 @@ Open:
 - Username: `appuser`
 - Password: `apppass`
 
-Important beginner note:
-
-Use `db` as the hostname from pgAdmin because that is the Compose service name.
-
-## Why the Data Survives Restarts
-
-The database files are stored in a named volume called `pgdata`.
-
-That means the data does not live only inside the short-lived container filesystem.
-
-## Stop the Project
+### Step-5: Stop the project when finished
 
 ```powershell
 docker compose down
 ```
 
-That stops the containers.
-The named volume remains unless you explicitly remove it.
+## Expected Output
 
-## Beginner Practice Tasks
-
-1. Start the project
-2. Open pgAdmin
-3. Register the PostgreSQL server using the values above
-4. Create a table
-5. Insert one row
-6. Stop the project
-7. Start it again
-8. Confirm the data still exists
-
-## Questions To Ask Yourself
-
-1. Why is the hostname `db` instead of `localhost`?
-2. Which part of the Compose file makes the data persistent?
-3. Which service is the database and which service is the admin tool?
+- pgAdmin should load in the browser
+- PostgreSQL should be reachable from pgAdmin using `db` as the hostname
+- Database data should survive normal stop and start cycles because of the named volume

@@ -1,16 +1,29 @@
 # Backup Demo
 
-## Purpose
+## Goal
 
 This example provides simple PowerShell scripts for backing up and restoring a Docker volume.
 
-## Backup
+## Pre-requisites
+
+- Docker Desktop running
+- A Docker volume to back up
+
+## Flow
+
+### Step-1: Run the backup script
 
 ```powershell
 ./backup-volume.ps1
 ```
 
-## Restore
+### Step-2: Verify the backup file was created
+
+Look for:
+
+- `volume-backup.tar`
+
+### Step-3: Run the restore script when needed
 
 ```powershell
 ./restore-volume.ps1
@@ -18,9 +31,8 @@ This example provides simple PowerShell scripts for backing up and restoring a D
 
 ## Expected Output
 
-The backup script should create a `volume-backup.tar` file in the current folder.
-
-The restore script should unpack that archive back into the target volume.
+- The backup script should create `volume-backup.tar` in the current folder
+- The restore script should unpack the archive into the target volume
 
 ## What You Are Learning
 

@@ -1,6 +1,6 @@
 # Images and Containers
 
-## Goal of This Lesson
+## Goal
 
 This lesson focuses on the most important Docker relationship:
 
@@ -53,6 +53,100 @@ It can be:
 - Removed
 
 The important point is that a container is created from an image.
+
+## Pre-requisites
+
+Before starting this lesson:
+
+- Docker should be installed and running
+- You should be comfortable with `docker run`, `docker ps`, and `docker images`
+
+## Flow-1: Pull an Image from Docker Hub and Run It Locally
+
+### Step-1: Pull the image
+
+```powershell
+docker pull nginx
+```
+
+### Step-2: Verify the image exists locally
+
+```powershell
+docker images
+```
+
+Expected result:
+
+- You should see `nginx` in the image list
+
+### Step-3: Run the image as a container
+
+```powershell
+docker run -d --name intro-web -p 8082:80 nginx
+```
+
+### Step-4: Access the application
+
+Open:
+
+`http://localhost:8082`
+
+Expected result:
+
+- The default Nginx page appears
+
+### Step-5: List running and stopped containers
+
+```powershell
+docker ps
+docker ps -a
+```
+
+### Step-6: Connect to the container
+
+```powershell
+docker exec -it intro-web sh
+```
+
+### Step-7: Stop and remove the container
+
+```powershell
+docker stop intro-web
+docker rm intro-web
+```
+
+### Step-8: Remove the image if needed
+
+```powershell
+docker images
+docker rmi nginx
+```
+
+## Sample Output
+
+After `docker images`, you should see something similar to this:
+
+```text
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+nginx        latest    abcdef123456   2 weeks ago    187MB
+```
+
+After `docker ps`, you should see the running container with the published port:
+
+```text
+CONTAINER ID   IMAGE   COMMAND                  STATUS          PORTS                  NAMES
+123abc456def   nginx   "/docker-entrypoint.…"  Up 10 seconds   0.0.0.0:8082->80/tcp   intro-web
+```
+
+## Visual Map
+
+```mermaid
+flowchart LR
+	A[Docker Image: nginx] --> B[Container: intro-web]
+	B --> C[Port 80 inside container]
+	C --> D[Port 8082 on your machine]
+	D --> E[Browser at localhost:8082]
+```
 
 ## Where Images Come From
 

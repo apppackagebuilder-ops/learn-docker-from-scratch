@@ -1,6 +1,6 @@
 # Final Projects
 
-## Goal of This Section
+## Goal
 
 Reading is useful, but building is what makes the ideas stick.
 
@@ -18,6 +18,43 @@ The projects move from simple to more realistic.
 2. PostgreSQL with pgAdmin using Compose
 3. A small microservices demo
 4. A frontend, API, and PostgreSQL full-stack project
+
+## Pre-requisites
+
+- Docker Desktop running
+- You should be comfortable with containers, Dockerfiles, and Compose
+
+## Flow-1: Work Through the Final Projects in Order
+
+### Step-1: Start with the simple web app
+
+Run the one-container project first.
+
+### Step-2: Move to PostgreSQL and pgAdmin
+
+Practice volume-backed multi-container setup.
+
+### Step-3: Run the microservices demo
+
+Practice service-to-service communication.
+
+### Step-4: Run the full-stack frontend, API, and PostgreSQL project
+
+Practice a more realistic three-service application.
+
+## Expected Result
+
+By the end of this section, you should be able to run and explain multi-container applications without guessing what each service is doing.
+
+## Visual Map
+
+```mermaid
+flowchart LR
+	A[Simple Web App] --> B[PostgreSQL and pgAdmin]
+	B --> C[Microservices Demo]
+	C --> D[Frontend + API + PostgreSQL]
+	D --> E[Build your own project]
+```
 
 ## How to Use These Projects Properly
 

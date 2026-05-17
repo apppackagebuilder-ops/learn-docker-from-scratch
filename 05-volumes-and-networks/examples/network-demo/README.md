@@ -1,31 +1,41 @@
 # Network Demo
 
-## Purpose
+## Goal
 
-This example shows two services attached to the same Compose network.
+This example shows how two containers on the same network can reach each other by name.
 
-## Run
+## Pre-requisites
+
+- Docker Desktop running
+
+## Flow
+
+### Step-1: Start the example
 
 ```powershell
 docker compose up -d
 ```
 
-## Expected Output
+### Step-2: Verify the containers are running
 
-You should see two containers start:
+You should see these containers:
 
 - `network-demo-web`
 - `network-demo-toolbox`
 
-You can then use the toolbox container to test network communication.
-
-Example:
+### Step-3: Connect to the toolbox container
 
 ```powershell
 docker exec -it network-demo-toolbox sh
 ```
 
-Inside the shell, install curl and request the web service.
+### Step-4: Test the web container by name
+
+Inside the toolbox shell, install curl and request the web service.
+
+## Expected Output
+
+You should be able to contact the web service by container or service name because both services share the same Docker network.
 
 ## What You Are Learning
 

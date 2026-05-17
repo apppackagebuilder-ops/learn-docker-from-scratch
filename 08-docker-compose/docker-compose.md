@@ -1,6 +1,6 @@
 # Docker Compose and Multi-Container Apps
 
-## Goal of This Lesson
+## Goal
 
 This lesson answers another important beginner question:
 
@@ -14,6 +14,14 @@ You will learn:
 - Why it is easier than many long `docker run` commands
 - How services work together
 - How networks, volumes, and environment variables fit into a Compose file
+
+## Pre-requisites
+
+Before starting this lesson:
+
+- Docker should be installed and running
+- You should understand images, containers, ports, and environment variables
+- You should be comfortable starting one container with `docker run`
 
 ## Why One Container Is Often Not Enough
 
@@ -138,7 +146,75 @@ This is an excellent beginner example because it shows a very common real setup:
 - One app container
 - One database container
 
-## Step-by-Step: Start the Stack
+## Flow-3: Run a Multi-Container Application with Docker Compose
+
+### Step-1: Review the Compose file
+
+Before running anything, open `compose.yaml` and identify:
+
+- The `web` service
+- The `db` service
+- Port mappings
+- Environment variables
+- The named volume
+
+### Step-2: Start the stack
+
+```powershell
+docker compose up --build -d
+```
+
+### Step-3: Verify the services are running
+
+```powershell
+docker compose ps
+```
+
+Expected result:
+
+- A running `web` service
+- A running `db` service
+
+### Step-4: Access the application
+
+Open:
+
+`http://localhost:5001`
+
+Expected result:
+
+- You should see JSON from the Flask app
+
+### Step-5: Review logs
+
+```powershell
+docker compose logs -f
+```
+
+### Step-6: Stop and remove the stack
+
+```powershell
+docker compose down
+```
+
+## Sample Output
+
+When the example works correctly, the browser should show a JSON response that confirms:
+
+- The Flask app started
+- The app can talk to PostgreSQL
+- Compose networking is working correctly
+
+Example response:
+
+```json
+{
+  "message": "Web service is running",
+  "database": "connected"
+}
+```
+
+## What the Start Command Means
 
 ```powershell
 docker compose up --build -d

@@ -1,5 +1,21 @@
 # Introduction to Docker
 
+## Goal
+
+This lesson gives you the first mental model you need for Docker.
+
+By the end of this lesson, you should understand:
+
+- What Docker is
+- What problem Docker solves
+- The difference between an image and a container
+- How Docker differs from a virtual machine
+
+## Pre-requisites
+
+- No prior Docker knowledge is required
+- You only need basic comfort reading simple terminal commands
+
 ## Before We Start
 
 If you are completely new to Docker, this is the right place to begin.
@@ -10,6 +26,47 @@ We will go slowly.
 The most important rule for this lesson is this:
 
 > Do not try to memorize everything at once. First understand the big idea.
+
+## Flow-0: Understand the Basic Docker Story
+
+### Step-1: Understand the problem Docker solves
+
+Read the sections about:
+
+- The big idea
+- Why Docker was created
+- Why Docker is used
+
+### Step-2: Understand image vs container
+
+Focus on these two words first:
+
+- Image
+- Container
+
+### Step-3: Understand container vs virtual machine
+
+Read the comparison and diagrams.
+
+### Step-4: Review Docker architecture words
+
+Make sure these words feel familiar:
+
+- Docker Client
+- Docker Engine
+- Docker Image
+- Docker Container
+- Docker Registry
+
+### Step-5: Review the first command preview
+
+```powershell
+docker run hello-world
+```
+
+## Expected Result
+
+After this lesson, you should be able to explain Docker in your own words without needing exact textbook definitions.
 
 ## The Big Idea
 

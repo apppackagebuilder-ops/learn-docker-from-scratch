@@ -1,26 +1,35 @@
 # Multi-Stage Node Example
 
-## Purpose
+## Goal
 
 This example shows how a multi-stage Dockerfile can produce a cleaner runtime image.
 
-## Build
+## Pre-requisites
+
+- Docker Desktop running
+- Port `3000` available on your machine
+
+## Flow
+
+### Step-1: Build the image
 
 ```powershell
 docker build -t multi-stage-node-demo .
 ```
 
-## Run
+### Step-2: Run the container
 
 ```powershell
 docker run -d -p 3000:3000 --name multi-stage-node-demo multi-stage-node-demo
 ```
 
-## Expected Output
+### Step-3: Open the application
 
 Open:
 
 `http://localhost:3000`
+
+## Expected Output
 
 You should see a JSON response from the Node.js app.
 

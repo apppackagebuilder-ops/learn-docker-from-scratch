@@ -1,10 +1,17 @@
 # Installation Verification Example
 
-## Purpose
+## Goal
 
-This example checks whether Docker is installed and working.
+This example verifies that Docker is installed correctly and working on your machine.
 
-## Run
+## Pre-requisites
+
+- Docker Desktop installed
+- Docker Desktop started
+
+## Flow
+
+### Step-1: Run the verification script
 
 ```powershell
 ./check-docker-installation.ps1
@@ -23,5 +30,5 @@ You should see:
 ## What You Are Learning
 
 - How to verify Docker installation
-- How to confirm the engine is running
-- How to confirm containers can start correctly
+- How to verify the Docker engine is responding
+- How to confirm the machine can run containers

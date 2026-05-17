@@ -1,6 +1,6 @@
 # Installing Docker
 
-## Goal of This Lesson
+## Goal
 
 By the end of this lesson, you should be able to do three simple but important things:
 
@@ -10,6 +10,60 @@ By the end of this lesson, you should be able to do three simple but important t
 
 That may sound small, but it is a big milestone.
 Once Docker is installed correctly, the rest of the course becomes much easier.
+
+## Pre-requisites
+
+- Windows 10 or Windows 11
+- Administrator access
+- Internet access
+
+## Flow-0: Install Docker and Verify It
+
+### Step-1: Download Docker Desktop
+
+Download Docker Desktop for Windows from the official Docker website.
+
+### Step-2: Run the installer
+
+Follow the install steps and enable WSL 2 integration if required.
+
+### Step-3: Start Docker Desktop
+
+Wait until Docker Desktop says Docker is running.
+
+### Step-4: Verify Docker in PowerShell
+
+```powershell
+docker version
+docker info
+```
+
+### Step-5: Run the first test container
+
+```powershell
+docker run hello-world
+```
+
+## Sample Output
+
+The `hello-world` container should print a success message that confirms your Docker installation is working correctly.
+
+Example output:
+
+```text
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```
+
+## Visual Map
+
+```mermaid
+flowchart LR
+	A[Install Docker Desktop] --> B[Start Docker Desktop]
+	B --> C[Run docker version and docker info]
+	C --> D[Run hello-world container]
+	D --> E[Docker is ready for lessons]
+```
 
 ## What You Need
 

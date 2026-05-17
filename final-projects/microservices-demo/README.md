@@ -2,93 +2,58 @@
 
 ## Goal
 
-This project is your introduction to a tiny microservices-style setup.
+This project is an introduction to a tiny microservices-style setup.
 
 You will run two Flask services together:
 
-- `product-service`, which returns product data
-- `gateway-service`, which calls `product-service` and returns a combined response
+- `product-service`
+- `gateway-service`
 
 ## What You Learn
-
-This project helps you practice:
 
 - Building more than one custom image
 - Running multiple services with Compose
 - Service-to-service communication
-- Using service names on the internal Docker network
+- Using service names on the internal network
 
-## Read the Project Structure First
+## Pre-requisites
 
-Before running it, look at the folders:
+- Docker Desktop running
+- Port `8090` available on your machine
 
-- `product-service/`
-- `gateway-service/`
-- `compose.yaml`
+## Project Files
 
-Notice that each service has its own:
+- `product-service/`: product data service
+- `gateway-service/`: gateway service
+- `compose.yaml`: starts both services
 
-- Application code
-- `requirements.txt`
-- Dockerfile
+## Flow
 
-That is a common pattern in small service-based systems.
-
-## Step-by-Step: Start the Project
-
-Open a terminal in this folder and run:
+### Step-1: Start the project
 
 ```powershell
 docker compose up --build -d
 ```
 
-What this does:
-
-1. Reads `compose.yaml`
-2. Builds the image for `product-service`
-3. Builds the image for `gateway-service`
-4. Creates the project network
-5. Starts both containers
-
-## Test the Project
+### Step-2: Open the application
 
 Open:
 
 `http://localhost:8090`
 
-Expected result:
-
-- The gateway returns JSON
-- The gateway talks to `product-service` using `http://product-service:5000`
-
-## The Most Important Concept Here
-
-The gateway does not need a hard-coded IP address.
-
-Because both services are in the same Compose project, the gateway can use the service name:
-
-- `product-service`
-
-That is one of the key ideas behind Docker networking in multi-service apps.
-
-## Stop the Project
+### Step-3: Stop the project when finished
 
 ```powershell
 docker compose down
 ```
 
-## Beginner Practice Tasks
+## Expected Output
 
-1. Change the product list in `product-service/app.py`
-2. Rebuild the stack
-3. Reload the browser
-4. Confirm the new data appears
-5. Add a new endpoint to one service
-6. Call it from the browser or another service
+- The gateway should return JSON
+- The gateway should call `product-service` using the service name on the Docker network
 
-## Questions To Ask Yourself
+## What To Notice
 
-1. Which service talks directly to the browser?
-2. Which service provides the raw product data?
-3. Why does the gateway use `product-service` instead of `localhost`?
-4. Why does each service have its own Dockerfile?
+- Each service has its own Dockerfile
+- Compose builds both services
+- The gateway uses `product-service` instead of a hard-coded IP address

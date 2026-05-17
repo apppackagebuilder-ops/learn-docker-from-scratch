@@ -1,6 +1,6 @@
 # Environment Variables, CMD, and ENTRYPOINT
 
-## Goal of This Lesson
+## Goal
 
 This lesson answers a very practical beginner question:
 
@@ -13,6 +13,68 @@ To answer that, we need to understand:
 - `ENTRYPOINT`
 
 These ideas control how a container starts and how it is configured.
+
+## Pre-requisites
+
+- Docker Desktop running
+- Basic understanding of Dockerfiles and containers
+
+## Flow-1: Build an Image and Override Its Behavior
+
+### Step-1: Build the example image
+
+```powershell
+docker build -t env-demo .
+```
+
+### Step-2: Run the image with default values
+
+```powershell
+docker run --rm env-demo
+```
+
+### Step-3: Run the image with custom environment variables and arguments
+
+```powershell
+docker run --rm -e APP_NAME=CourseApp env-demo --mode production
+```
+
+## Sample Output
+
+The application output should show:
+
+- The application name
+- The application environment
+- The selected mode
+
+Those values should change when you pass new environment variables or arguments.
+
+For example, a default run may look like this:
+
+```text
+APP_NAME=DemoApp
+APP_ENV=development
+MODE=demo
+```
+
+An overridden run may look like this:
+
+```text
+APP_NAME=CourseApp
+APP_ENV=development
+MODE=production
+```
+
+## Visual Map
+
+```mermaid
+flowchart LR
+	A[Docker Image] --> B[ENTRYPOINT starts the app]
+	C[CMD default arguments] --> B
+	D[Environment variables] --> B
+	E[Extra docker run arguments] --> B
+	B --> F[Container behavior changes at runtime]
+```
 
 ## Why Configuration Matters
 
@@ -167,7 +229,7 @@ This lesson includes a small Python example that:
 
 That makes it a good demo for seeing what changes when you pass different values.
 
-## Step-by-Step: Build and Run the Example
+## What the Example Commands Mean
 
 ### Build the image
 

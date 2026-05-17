@@ -1,6 +1,6 @@
 # Best Practices
 
-## Goal of This Lesson
+## Goal
 
 By this point, you have learned many Docker features.
 
@@ -10,6 +10,65 @@ Think of best practices as the difference between:
 
 - "I made it work once"
 - "I can build this in a clean, repeatable, team-friendly way"
+
+## Pre-requisites
+
+- Docker Desktop running
+- Familiarity with images, containers, Dockerfiles, volumes, networks, and Compose
+
+## Flow-1: Review a Small Example That Uses Multiple Best Practices
+
+### Step-1: Open the example folder
+
+Review `examples/good-python-service/`
+
+### Step-2: Start the example
+
+```powershell
+docker compose -f examples/good-python-service/compose.yaml up --build -d
+```
+
+### Step-3: Open the application
+
+Open `http://localhost:8010`
+
+### Step-4: Check the health endpoint
+
+Open `http://localhost:8010/health`
+
+### Step-5: Stop the example
+
+```powershell
+docker compose -f examples/good-python-service/compose.yaml down
+```
+
+## Sample Output
+
+- The app should return JSON from the main endpoint
+- The health endpoint should return a healthy response
+- The example should demonstrate multiple best practices together in one place
+
+Example main endpoint response:
+
+```json
+{
+	"service": "good-python-service",
+	"environment": "development",
+	"message": "Service is running"
+}
+```
+
+## Visual Map
+
+```mermaid
+flowchart TD
+		A[Small trusted base image] --> E[Cleaner image]
+		B[.dockerignore] --> E
+		C[Health check] --> F[Safer runtime]
+		D[Non-root user] --> F
+		E --> G[Better Docker project]
+		F --> G
+```
 
 ## Why Best Practices Matter
 

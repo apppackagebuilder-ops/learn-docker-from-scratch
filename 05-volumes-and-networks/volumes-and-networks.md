@@ -1,6 +1,6 @@
 # Volumes and Networks
 
-## Goal of This Lesson
+## Goal
 
 This lesson explains two ideas that make beginners uncomfortable at first:
 
@@ -9,6 +9,63 @@ This lesson explains two ideas that make beginners uncomfortable at first:
 
 If those two things feel fuzzy right now, that is normal.
 We will break both down slowly.
+
+## Pre-requisites
+
+- Docker Desktop running
+- Basic comfort with `docker run`, `docker ps`, and images
+
+## Flow-1: Create and Use a Docker Volume
+
+### Step-1: Create the volume
+
+```powershell
+docker volume create app-data
+```
+
+### Step-2: Verify the volume exists
+
+```powershell
+docker volume ls
+docker volume inspect app-data
+```
+
+### Step-3: Write data into the volume
+
+```powershell
+docker run --rm -v app-data:/data alpine sh -c "echo saved > /data/note.txt"
+```
+
+### Step-4: Read the data from a second container
+
+```powershell
+docker run --rm -v app-data:/data alpine sh -c "cat /data/note.txt"
+```
+
+## Flow-2: Create a Docker Network and Connect Two Containers
+
+### Step-1: Create the network
+
+```powershell
+docker network create app-net
+```
+
+### Step-2: Start the first container on the network
+
+```powershell
+docker run -d --name web-a --network app-net nginx
+```
+
+### Step-3: Start a second container and contact the first by name
+
+```powershell
+docker run --rm --network app-net alpine sh -c "apk add --no-cache curl ; curl http://web-a"
+```
+
+## Sample Output
+
+- The volume flow should print `saved` when the second container reads the file
+- The network flow should return HTML from the Nginx container
 
 ## First Big Idea: Containers Are Easy to Replace
 

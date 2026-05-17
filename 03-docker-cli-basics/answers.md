@@ -1,5 +1,35 @@
 # Answer Key: Docker CLI Basics
 
+## How to Use This Key
+
+These commands matter because they form your basic container troubleshooting toolkit.
+
+## Flow-1 Suggested Answers
+
+1. `docker ps` shows running containers.
+2. `docker ps -a` shows all containers, including stopped ones.
+3. `docker logs` shows container output.
+4. `docker inspect` shows detailed JSON metadata about a Docker object.
+
+## Flow-2 Answers
+
+1. `docker run -d -p 8080:80 --name cli-nginx-demo nginx`
+2. `docker ps`
+3. `docker logs cli-nginx-demo`
+4. `docker stop cli-nginx-demo`
+5. `docker rm cli-nginx-demo`
+
+## Flow-3 Suggested Answers
+
+1. `http://localhost:8080`
+2. `docker ps`
+3. `docker inspect cli-nginx-demo`
+
+## Flow-4 Reflection Guide
+
+Logs help you see what the application printed, and inspection helps you see configuration details like ports, environment, networks, and mounts.
+# Answer Key: Docker CLI Basics
+
 ## Part 1 Suggested Answers
 
 1. `docker ps` lists running containers.

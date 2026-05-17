@@ -1,5 +1,34 @@
 # Answer Key: Environment Variables, CMD, and ENTRYPOINT
 
+## How to Use This Key
+
+The key idea is understanding which part of container behavior is fixed and which part is configurable.
+
+## Flow-1 Suggested Answers
+
+1. An environment variable is a named value given to a program at runtime.
+2. `CMD` sets the default command or default arguments.
+3. `ENTRYPOINT` sets the main executable.
+4. They are often used together when the executable stays the same but the default arguments may change.
+
+## Flow-2 Suggested Answers
+
+1. `docker run --rm env-demo`
+2. `docker run --rm -e APP_NAME=CourseApp env-demo --mode production`
+3. `-e APP_NAME=CourseApp`
+4. `--mode production`
+
+## Flow-3 Suggested Answers
+
+1. The application name value changes.
+2. The mode value changes.
+3. Because configuration is passed at runtime instead of being hard-coded into a new image build.
+
+## Flow-4 Reflection Guide
+
+Runtime configuration keeps the image reusable across development, testing, and production without needing a rebuild for every small value change.
+# Answer Key: Environment Variables, CMD, and ENTRYPOINT
+
 ## Part 1 Suggested Answers
 
 1. An environment variable is a named value given to a program at runtime.

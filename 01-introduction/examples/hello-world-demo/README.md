@@ -1,40 +1,50 @@
 # Hello World Demo
 
-This example belongs to the introduction lesson.
+## Goal
 
-Its job is very small on purpose.
-It helps you see the simplest possible Docker flow:
+This is the smallest possible Docker practice example.
+
+It helps you understand the first Docker flow:
 
 1. Docker finds an image
-2. Docker starts a container
-3. The container prints a message
+2. Docker runs a container
+3. The container prints output
 4. The container stops
 
-## Run It
+## Pre-requisites
+
+- Docker Desktop installed
+- Docker Desktop running
+
+## Flow
+
+### Step-1: Run the helper script
 
 ```powershell
 ./run-hello-world.ps1
 ```
 
-If you prefer, you can run the raw command yourself:
+### Step-2: Run the raw command if you want to practice manually
 
 ```powershell
 docker run hello-world
 ```
 
-## Expected Output
-
-You should see a success message from Docker explaining that the installation appears to be working correctly.
-
-You should also see a stopped `hello-world` container if you run:
+### Step-3: List all containers
 
 ```powershell
 docker ps -a
 ```
 
-## What To Notice
+## Expected Output
 
-- You did not build any code yet
-- Docker can download an image for you
-- A container can run only for a few seconds and still be useful
-- A stopped container can still appear in `docker ps -a`
+You should see:
+
+- A Docker success message from the `hello-world` container
+- A stopped `hello-world` container in `docker ps -a`
+
+## What You Are Learning
+
+- Docker can pull an image automatically
+- A container can do a short task and stop
+- Stopped containers can still be listed later

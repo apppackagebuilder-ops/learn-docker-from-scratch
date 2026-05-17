@@ -1,6 +1,6 @@
 # Operations: Health Checks, Logging, Limits, Backup, Restore, Troubleshooting
 
-## Goal of This Lesson
+## Goal
 
 Up to now, you have learned how to build and run containers.
 
@@ -13,6 +13,74 @@ That means learning how to answer questions like:
 - How do I stop one container from using too much memory?
 - How do I protect important data?
 - What should I check when something breaks?
+
+## Pre-requisites
+
+- Docker Desktop running
+- Basic understanding of containers, logs, networks, and volumes
+
+## Flow-1: Run a Container with a Health Check and Inspect It
+
+### Step-1: Build the health-check example
+
+```powershell
+docker build -t healthcheck-demo .
+```
+
+### Step-2: Run the container
+
+```powershell
+docker run -d -p 5002:5000 --name healthcheck-demo healthcheck-demo
+```
+
+### Step-3: Open the health endpoint
+
+Open `http://localhost:5002/health`
+
+### Step-4: Inspect logs and health
+
+```powershell
+docker logs healthcheck-demo
+docker inspect healthcheck-demo
+```
+
+## Flow-2: Back Up and Restore a Docker Volume
+
+### Step-1: Run the backup script
+
+```powershell
+./examples/backup-demo/backup-volume.ps1
+```
+
+### Step-2: Restore when needed
+
+```powershell
+./examples/backup-demo/restore-volume.ps1
+```
+
+## Sample Output
+
+- The health endpoint should return a healthy response
+- The backup flow should create a `volume-backup.tar` file
+
+Example health endpoint response:
+
+```json
+{
+  "status": "healthy"
+}
+```
+
+## Visual Map
+
+```mermaid
+flowchart TD
+    A[Container starts] --> B[Health check runs]
+    B --> C{Healthy?}
+    C -->|Yes| D[Serve traffic and keep monitoring]
+    C -->|No| E[Inspect logs and container details]
+    E --> F[Fix config, code, port, or dependency issue]
+```
 
 ## Health Checks
 
