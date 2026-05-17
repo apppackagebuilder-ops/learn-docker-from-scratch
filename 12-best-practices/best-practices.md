@@ -16,6 +16,17 @@ Think of best practices as the difference between:
 - Docker Desktop running
 - Familiarity with images, containers, Dockerfiles, volumes, networks, and Compose
 
+## Beginner Path in This Lesson
+
+Do not treat this lesson like a list to memorize.
+Use it like a checklist:
+
+1. Run the example project.
+2. Look for one good practice in the Dockerfile.
+3. Look for one good practice in Compose.
+4. Look for one good practice in the app behavior.
+5. Then read the habit lists and anti-patterns.
+
 ## Flow-1: Review a Small Example That Uses Multiple Best Practices
 
 ### Step-1: Open the example folder

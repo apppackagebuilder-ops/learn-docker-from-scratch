@@ -28,6 +28,17 @@ Before starting this lesson, make sure:
 
 If any of those fail, go back to the installation lesson first.
 
+## Beginner Path in This Lesson
+
+If this is your first real Docker CLI practice, follow this order:
+
+1. Start one Nginx container.
+2. Confirm it is running with `docker ps`.
+3. Open it in the browser.
+4. Check logs.
+5. Open a shell in the container.
+6. Stop and remove the container.
+
 ## The General Command Pattern
 
 Many Docker commands follow a simple pattern:
@@ -257,21 +268,13 @@ This is much easier than remembering a random container ID.
 
 This is the image Docker should use.
 
-## What You Should See
+## What This Proves
 
-After running the command, open:
+If the Nginx page opens in the browser, that proves:
 
-`http://localhost:8080`
-
-Expected result:
-
-- The Nginx welcome page appears in your browser
-
-That proves:
-
-- The container is running
-- Port mapping works
-- Docker can serve traffic from the container to your machine
+- The container is running.
+- Port mapping works.
+- Docker can serve traffic from the container to your machine.
 
 ## Starting, Stopping, and Restarting
 

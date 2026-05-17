@@ -19,6 +19,15 @@ So this lesson focuses on building images that are safer, smaller, and cleaner.
 - Docker Desktop running
 - Basic knowledge of Dockerfiles and image builds
 
+## Beginner Path in This Lesson
+
+If this lesson feels advanced, use this order:
+
+1. Understand why a working image is not always a good image.
+2. Learn the idea of build stage versus runtime stage.
+3. Run the multi-stage example.
+4. Then read the security habits and optimization tips.
+
 ## Flow-1: Build and Run a Multi-Stage Image
 
 ### Step-1: Review the Dockerfile stages

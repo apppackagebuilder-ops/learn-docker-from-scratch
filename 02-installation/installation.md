@@ -17,7 +17,17 @@ Once Docker is installed correctly, the rest of the course becomes much easier.
 - Administrator access
 - Internet access
 
-## Flow-0: Install Docker and Verify It
+## Beginner Path in This Lesson
+
+If you want the simplest possible route, do these in order:
+
+1. Install Docker Desktop.
+2. Wait until Docker Desktop says Docker is running.
+3. Run `docker version` and `docker info`.
+4. Run `docker run hello-world`.
+5. If something fails, use the troubleshooting section at the end of this lesson.
+
+## Flow-1: Install Docker and Verify It
 
 ### Step-1: Download Docker Desktop
 
@@ -65,7 +75,7 @@ flowchart LR
 	D --> E[Docker is ready for lessons]
 ```
 
-## What You Need
+## Installation Requirements
 
 You do not need to be an expert.
 You only need a machine that can run Docker Desktop comfortably.
@@ -107,52 +117,12 @@ Instead of manually wiring together low-level pieces, Docker Desktop gives you a
 
 For learning, this is the right tradeoff.
 
-## Recommended Installation Path for Windows
-
-### Step 1: Download Docker Desktop
-
-Go to Docker's official website and download Docker Desktop for Windows.
-
-### Step 2: Run the installer
-
-Start the installer and follow the prompts.
-
-### Step 3: Enable WSL 2 integration if asked
-
-WSL 2 is commonly used by Docker Desktop on Windows.
-
-If the installer suggests enabling it, follow the instructions.
-
-### Step 4: Restart if required
-
-Sometimes Windows needs a restart before everything works correctly.
-
-### Step 5: Open Docker Desktop
-
-After installation, launch Docker Desktop.
-
-### Step 6: Wait for the engine to start
-
-Do not rush this step.
-Docker Desktop may need a short time to initialize.
-
-You want to see that Docker is fully running before trying commands.
-
 ## How to Know Docker Is Ready
 
 You can usually tell in two ways:
 
 - Docker Desktop says it is running
 - Terminal commands like `docker version` work without server errors
-
-## Verify the Installation
-
-Open PowerShell and run:
-
-```powershell
-docker version
-docker info
-```
 
 ### What `docker version` tells you
 
@@ -175,44 +145,15 @@ It shows more detailed information such as:
 Do not worry if much of this output looks unfamiliar.
 At this stage, you only need to confirm that Docker responds successfully.
 
-## Run Your First Container
+## What Happens During `hello-world`
 
-Now run the classic beginner test:
+When you run `docker run hello-world`, Docker:
 
-```powershell
-docker run hello-world
-```
-
-Let us describe what happens.
-
-### Step 1
-
-Docker looks for the `hello-world` image on your machine.
-
-### Step 2
-
-If it does not find it, Docker downloads it.
-
-### Step 3
-
-Docker starts a container from that image.
-
-### Step 4
-
-The container prints a success message.
-
-### Step 5
-
-The container stops because its one job is finished.
-
-Expected output includes something like:
-
-```text
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-```
-
-If you see that message, you have crossed the first real checkpoint.
+1. Checks whether the image already exists on your machine.
+2. Downloads it if it is missing.
+3. Starts a container from that image.
+4. Prints a success message.
+5. Stops the container because the task is finished.
 
 ## Useful First Checks
 

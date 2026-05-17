@@ -23,6 +23,17 @@ Before starting this lesson:
 - You should understand images, containers, ports, and environment variables
 - You should be comfortable starting one container with `docker run`
 
+## Beginner Path in This Lesson
+
+If Compose feels new, do not try to memorize the whole file at once.
+Use this order:
+
+1. Understand why one container is often not enough.
+2. Read the tiny Compose example.
+3. Run the `web-db-compose` project.
+4. Look at the diagram.
+5. Then read the deeper explanation sections.
+
 ## Why One Container Is Often Not Enough
 
 Many real applications need multiple parts.
@@ -146,7 +157,7 @@ This is an excellent beginner example because it shows a very common real setup:
 - One app container
 - One database container
 
-## Flow-3: Run a Multi-Container Application with Docker Compose
+## Flow-1: Run a Multi-Container Application with Docker Compose
 
 ### Step-1: Review the Compose file
 
@@ -226,27 +237,14 @@ Let us decode it.
 - `--build`: rebuild images if needed before starting
 - `-d`: run in the background
 
-## What Should Happen
+When this command succeeds, Compose usually:
 
-Compose should:
-
-1. Read `compose.yaml`
-2. Build the web image if needed
-3. Pull the PostgreSQL image if needed
-4. Create a network for the project
-5. Create containers for `web` and `db`
-6. Start them
-
-## Check It in the Browser
-
-Open:
-
-`http://localhost:5001`
-
-Expected result:
-
-- You should see JSON from the Flask app
-- The app should be able to talk to PostgreSQL
+1. Reads `compose.yaml`.
+2. Builds the web image if needed.
+3. Pulls the PostgreSQL image if needed.
+4. Creates a network for the project.
+5. Creates containers for `web` and `db`.
+6. Starts them.
 
 ## Why the App Can Reach the Database
 
@@ -262,23 +260,19 @@ as the database host name.
 
 That is cleaner than hard-coding a changing IP address.
 
-## Viewing Logs
+## Viewing Logs and Stopping the Stack
+
+To watch logs from all services together:
 
 ```powershell
 docker compose logs -f
 ```
 
-This is very useful when something does not work.
-
-You can watch logs from all services together.
-
-## Stop the Stack
+To stop the project and remove the default project network:
 
 ```powershell
 docker compose down
 ```
-
-This stops the project and removes the containers and default project network.
 
 ## Mermaid Diagram
 

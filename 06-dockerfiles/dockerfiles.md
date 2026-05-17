@@ -20,6 +20,16 @@ Before starting this lesson:
 - You understand the difference between an image and a container
 - You know how to run `docker build` and `docker run` at a basic level
 
+## Beginner Path in This Lesson
+
+Read this lesson in this order:
+
+1. Understand the sample Dockerfile.
+2. Understand build context.
+3. Understand why `.dockerignore` matters.
+4. Build the Flask example.
+5. Run the Flask example.
+
 ## What Is a Dockerfile?
 
 A Dockerfile is a recipe for building a Docker image.
@@ -194,6 +204,14 @@ It means:
 
 That is why `COPY` works only with files that are inside the build context.
 
+## Simple Mental Model
+
+Think of a Docker build like this:
+
+- The Dockerfile is the recipe.
+- The build context is the box of files Docker is allowed to use.
+- `.dockerignore` removes files that should stay out of that box.
+
 ## A Very Common Beginner Confusion
 
 Beginners often think Docker can copy any file from anywhere on the computer during a build.
@@ -263,7 +281,7 @@ This lesson includes a small Flask web app in `examples/python-flask-app/`.
 
 The example is intentionally simple so you can focus on the Docker concepts.
 
-## Flow-2: Build a New Docker Image and Run It Locally
+## Flow-1: Build a New Docker Image and Run It Locally
 
 ### Step-1: Review the Dockerfile
 

@@ -15,6 +15,16 @@ We will break both down slowly.
 - Docker Desktop running
 - Basic comfort with `docker run`, `docker ps`, and images
 
+## Beginner Path in This Lesson
+
+If this lesson feels heavy, use this order:
+
+1. Run the volume flow first.
+2. Make sure you understand why `saved` still appears after the first container is gone.
+3. Run the network flow second.
+4. Focus on why `web-a` works as a hostname.
+5. Then read the deeper explanations about bind mounts, volumes, and networks.
+
 ## Flow-1: Create and Use a Docker Volume
 
 ### Step-1: Create the volume

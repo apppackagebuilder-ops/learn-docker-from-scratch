@@ -15,6 +15,15 @@ That is the job of a registry.
 - A Docker Hub account if you want to push images
 - Basic comfort with image build and tag commands
 
+## Beginner Path in This Lesson
+
+If registries feel abstract, use this order:
+
+1. Build one small local image.
+2. Tag it with a registry name.
+3. Understand what changed in `docker images`.
+4. Only then think about push, pull, and private registries.
+
 ## Flow-1: Build, Tag, and Push an Image
 
 ### Step-1: Build a local image

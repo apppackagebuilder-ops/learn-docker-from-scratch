@@ -68,6 +68,29 @@ Each lesson includes:
 
 The final projects are where the ideas come together.
 
+## Start Here If You Feel Lost
+
+If you are a complete beginner, do only these first:
+
+1. Read [01-introduction/introduction.md](./01-introduction/introduction.md).
+2. Complete [02-installation/installation.md](./02-installation/installation.md).
+3. Run the example in [02-installation/examples/verification/README.md](./02-installation/examples/verification/README.md).
+4. Practice [03-docker-cli-basics/docker-cli-basics.md](./03-docker-cli-basics/docker-cli-basics.md).
+5. Only then continue to images, Dockerfiles, and Compose.
+
+## Course Map
+
+```mermaid
+flowchart LR
+	A[Introduction] --> B[Installation]
+	B --> C[CLI Basics]
+	C --> D[Images and Containers]
+	D --> E[Dockerfiles]
+	E --> F[Compose]
+	F --> G[Operations and Best Practices]
+	G --> H[Final Projects]
+```
+
 ## Repository Layout
 
 - `index.md`: table of contents

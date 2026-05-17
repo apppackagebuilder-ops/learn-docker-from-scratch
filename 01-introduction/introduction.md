@@ -16,6 +16,16 @@ By the end of this lesson, you should understand:
 - No prior Docker knowledge is required
 - You only need basic comfort reading simple terminal commands
 
+## Beginner Path in This Lesson
+
+If this is your first contact with Docker, do this in order:
+
+1. Understand the big idea first.
+2. Learn the difference between image and container.
+3. Read the container versus virtual machine comparison.
+4. Learn the five architecture words near the end of the lesson.
+5. Only then look at the first command preview.
+
 ## Before We Start
 
 If you are completely new to Docker, this is the right place to begin.
@@ -27,7 +37,7 @@ The most important rule for this lesson is this:
 
 > Do not try to memorize everything at once. First understand the big idea.
 
-## Flow-0: Understand the Basic Docker Story
+## Flow-1: Understand the Basic Docker Story
 
 ### Step-1: Understand the problem Docker solves
 

@@ -24,6 +24,17 @@ The projects move from simple to more realistic.
 - Docker Desktop running
 - You should be comfortable with containers, Dockerfiles, and Compose
 
+## Beginner Path in This Section
+
+Use the projects in this exact order:
+
+1. Simple Web App
+2. PostgreSQL and pgAdmin
+3. Microservices Demo
+4. Frontend, API, and PostgreSQL
+
+Do not skip to the hardest project first unless you already feel comfortable with Compose and service-to-service communication.
+
 ## Flow-1: Work Through the Final Projects in Order
 
 ### Step-1: Start with the simple web app

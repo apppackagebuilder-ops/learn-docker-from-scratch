@@ -61,6 +61,14 @@ Before starting this lesson:
 - Docker should be installed and running
 - You should be comfortable with `docker run`, `docker ps`, and `docker images`
 
+## Beginner Path in This Lesson
+
+Use this lesson in two passes:
+
+1. First, focus only on the difference between image and container.
+2. Then run the Nginx example.
+3. Then come back and read the supporting explanation sections below.
+
 ## Flow-1: Pull an Image from Docker Hub and Run It Locally
 
 ### Step-1: Pull the image
@@ -164,19 +172,15 @@ Companies often store internal images in private registries.
 
 You can build your own image for your own application.
 
-## Example: Run the Official Nginx Image
+## What Docker Does During `docker run`
 
-```powershell
-docker run -d -p 8080:80 --name web nginx
-```
+When you run an image like Nginx, Docker:
 
-Let us describe what Docker does.
-
-1. It checks whether the `nginx` image exists locally.
-2. If not, it downloads it.
-3. It creates a container from that image.
-4. It starts the container.
-5. It maps your machine's port `8080` to the container's port `80`.
+1. Checks whether the image exists locally.
+2. Downloads it if needed.
+3. Creates a container from the image.
+4. Starts the container.
+5. Applies the requested port mapping.
 
 ## Listing Images
 

@@ -19,6 +19,15 @@ That means learning how to answer questions like:
 - Docker Desktop running
 - Basic understanding of containers, logs, networks, and volumes
 
+## Beginner Path in This Lesson
+
+If operations feels broad, use this order:
+
+1. Learn the difference between running and healthy.
+2. Check logs with `docker logs`.
+3. Learn the troubleshooting checklist.
+4. Then learn backup, restore, and resource limits.
+
 ## Flow-1: Run a Container with a Health Check and Inspect It
 
 ### Step-1: Build the health-check example

@@ -19,6 +19,15 @@ These ideas control how a container starts and how it is configured.
 - Docker Desktop running
 - Basic understanding of Dockerfiles and containers
 
+## Beginner Path in This Lesson
+
+If `CMD` and `ENTRYPOINT` feel confusing, use this order:
+
+1. Run the image with defaults.
+2. Run the same image with overridden values.
+3. Compare the output.
+4. Then read the sections explaining environment variables, `CMD`, and `ENTRYPOINT`.
+
 ## Flow-1: Build an Image and Override Its Behavior
 
 ### Step-1: Build the example image
@@ -75,6 +84,14 @@ flowchart LR
 	E[Extra docker run arguments] --> B
 	B --> F[Container behavior changes at runtime]
 ```
+
+## What To Focus On First
+
+Do not try to memorize every keyword at once.
+First understand this simple rule:
+
+- The image can stay the same.
+- The container behavior can still change at runtime.
 
 ## Why Configuration Matters
 

@@ -13,6 +13,16 @@ It is written for beginners, so the lessons intentionally explain ideas slowly b
 - Do the exercises before looking at the final projects.
 - Use each lesson's `worksheet.md` before opening `answers.md`.
 
+## Start Here First
+
+If you are unsure where to begin, do this exact path first:
+
+1. [Introduction to Docker](./01-introduction/introduction.md)
+2. [Installing Docker](./02-installation/installation.md)
+3. [Installation verification example](./02-installation/examples/verification/README.md)
+4. [Docker CLI Basics](./03-docker-cli-basics/docker-cli-basics.md)
+5. [CLI Nginx demo](./03-docker-cli-basics/examples/nginx-cli-demo/README.md)
+
 ## Learning Pattern Used in This Course
 
 Most lessons follow a practical pattern:
