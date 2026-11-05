@@ -1,0 +1,167 @@
+Create a complete, beginner-first learning repository in Markdown for the topic: [TOPIC_NAME].
+
+Treat the learner as a complete beginner with no prior knowledge.
+Write like you are teaching patiently to a very young learner, but keep the structure professional, practical, and repo-ready.
+Generate the full content in one go.
+Do not give only an outline, teaser, or partial sample.
+Produce the full repository content, folder plan, file plan, and full Markdown content for each file.
+
+The output must follow these quality requirements:
+
+1. Beginner-first teaching style
+- Assume zero prior knowledge.
+- Explain every important term in simple words before using it repeatedly.
+- Use plain language, simple analogies, and step-by-step explanations.
+- Do not skip setup assumptions.
+- Do not sound academic, vague, or overly compressed.
+
+2. Flow-based training style
+- The repository should read like a practical training repo, not like textbook notes.
+- Use sections such as:
+  - Goal
+  - Pre-requisites
+  - Beginner Path in This Lesson
+  - Flow-1 / Flow-2 when needed
+  - Step-1 / Step-2 / Step-3
+  - Sample Output or Expected Result
+  - Visual Map or Mermaid Diagram
+  - Common Beginner Mistakes
+  - Mini Summary
+  - Quick Quiz
+  - Exercise
+- The learner should always know what to read first, what to run next, and what result to expect.
+
+3. Full repo structure
+- Create a root README.md.
+- Create a root index.md.
+- Create numbered lesson folders in a logical learning order.
+- Each lesson should have:
+  - one main lesson markdown file
+  - worksheet.md
+  - answers.md
+  - examples/ folder where appropriate
+- Add final-projects/ with multiple hands-on projects.
+- Include example README.md files in every example directory.
+
+4. Root README.md requirements
+- Must explain the course goal clearly.
+- Must show how to use the course.
+- Must include a Start Here section for lost beginners.
+- Must include a course map.
+- Must explain the study pattern.
+- Must set expectations that the learner should run commands and examples, not just read.
+
+5. Root index.md requirements
+- Must include a Start Here First section.
+- Must include learning flows grouping the lessons.
+- Must include direct quick-practice links to the example READMEs.
+- Must include a Final Project Quick Start section.
+- Must feel like a guided path, not only a table of contents.
+
+6. Main lesson requirements
+- Every main lesson must include:
+  - Goal
+  - Pre-requisites
+  - Beginner Path in This Lesson or Beginner Path in This Section
+  - at least one guided Flow section
+  - sample commands where relevant
+  - Sample Output or Expected Result
+  - at least one Mermaid diagram or visual map
+- Avoid duplicated walkthrough sections.
+- Keep one clean teaching order:
+  - what this lesson is for
+  - what to focus on first
+  - guided hands-on flow
+  - deeper explanation
+  - mistakes, summary, quiz, exercise
+
+7. Example requirements
+- Add runnable examples wherever a topic can be demonstrated practically.
+- Every example directory must contain a README.md.
+- Every example README must use a flow-based style with:
+  - Goal
+  - Pre-requisites
+  - Flow
+  - Expected Output
+  - What You Are Learning
+- Include sample commands and realistic output.
+
+8. Sample code requirements
+- Provide sample code wherever relevant.
+- Prefer small, runnable, beginner-readable examples.
+- If a topic can demonstrate code, include code.
+- Do not leave examples abstract if code would help.
+
+9. Worksheets and answer keys
+- Every lesson must have worksheet.md and answers.md.
+- worksheet.md must include:
+  - Goal
+  - Before You Start
+  - Flow-based practice sections
+  - reflection prompts
+- answers.md must include:
+  - How to Use This Key
+  - suggested answers
+  - reflection guidance
+
+10. Final project requirements
+- Include multiple final projects from easier to harder.
+- The projects should build confidence gradually.
+- Each project must have its own README.md in the same flow-based style.
+- The final project section should explain what each project teaches.
+- The hardest project should feel like a realistic mini real-world application.
+
+11. Beginner guidance quality bar
+- Add exact URLs to open when browser testing is needed.
+- Add exact commands to run.
+- Add expected output wherever possible.
+- Add short explanations of what each command proves.
+- Add common mistakes and troubleshooting guidance.
+- Add simple mental models when a concept is confusing.
+
+12. Diagrams and visuals
+- Use Mermaid diagrams in the main lessons where visuals help.
+- Prefer simple diagrams that explain flow, architecture, data movement, or process order.
+- Do not add diagrams only for decoration.
+
+13. Consistency rules
+- Keep naming and structure consistent across the repository.
+- Do not mix styles randomly.
+- Do not make some lessons detailed and others skeletal.
+- Do not make some examples have README files while others do not.
+- Do not use inconsistent section naming unless there is a good reason.
+
+14. Output format
+- First provide the proposed repository folder structure.
+- Then provide the full content for every file.
+- Do not stop after a partial answer.
+- Do not say “I can continue” or “let me know if you want the rest.”
+- Generate everything in one response.
+
+15. Content quality guardrails
+- Do not be shallow.
+- Do not give only glimpses or bullet summaries.
+- Do not assume the learner can infer missing steps.
+- Do not overcompress explanations.
+- Do not skip examples, outputs, worksheets, or project documentation.
+- Do not create messy repetition.
+
+16. Reusability
+- The repository should be suitable for publishing to GitHub as a self-study course.
+- The output should feel like a polished training repo, not a draft.
+
+Use this exact delivery pattern:
+
+1. Repository structure
+2. Root files
+3. Lesson folders and files in order
+4. Example files and example READMEs
+5. Worksheet and answer files
+6. Final projects and project READMEs
+7. Any supporting files needed for the examples to make sense
+
+If the topic is broad, still keep the learning order clean and practical.
+If the topic is technical, still explain it gently.
+If the topic supports hands-on work, always prefer runnable examples over abstract discussion.
+
+Now generate the complete repository for: [TOPIC_NAME]
